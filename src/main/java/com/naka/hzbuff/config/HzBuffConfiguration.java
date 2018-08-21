@@ -29,7 +29,7 @@ public class HzBuffConfiguration {
 
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setClassName(PersonStore.class.getName()).setEnabled(true);
-
+        mapStoreConfig.setWriteDelaySeconds(10);
 
         MapConfig mapConfig = new MapConfig();
         mapConfig.setName("default");
