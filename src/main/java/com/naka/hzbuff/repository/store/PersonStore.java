@@ -43,7 +43,7 @@ public class PersonStore implements MapStore<Integer, Person> {
 
     @Override
     public void storeAll(Map<Integer, Person> map) {
-        personRepository.saveAll((List) map);
+        personRepository.saveAll(new ArrayList<>(map.values()));
     }
 
     @Override
