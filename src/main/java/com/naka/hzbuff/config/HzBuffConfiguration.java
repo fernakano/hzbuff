@@ -45,15 +45,12 @@ public class HzBuffConfiguration {
 //        serializationConfig.setCheckClassDefErrors(true);
 
 //        ManagementCenterConfig managementCenterConfig = new ManagementCenterConfig();
-//        managementCenterConfig.setUrl("http://localhost:32770/hazelcast-mancenter/").setEnabled(true);
-//
+//        managementCenterConfig.setUrl("http://localhost:32769/hazelcast-mancenter/").setEnabled(true);
+
 //        config.setManagementCenterConfig(managementCenterConfig);
 //        config.setSerializationConfig(serializationConfig);
         config.addMapConfig(mapConfig);
 
         return Hazelcast.newHazelcastInstance(config);
-
-        // return HazelcastClient.newHazelcastClient();
     }
-
 }
