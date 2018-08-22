@@ -29,6 +29,7 @@ public class HzBuffConfiguration {
 
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setClassName(PersonStore.class.getName()).setEnabled(true);
+
         mapStoreConfig.setWriteDelaySeconds(10);
 
         MapConfig mapConfig = new MapConfig();
@@ -43,10 +44,10 @@ public class HzBuffConfiguration {
 //        serializationConfig.setAllowUnsafe(true).setEnableCompression(true);
 //        serializationConfig.setCheckClassDefErrors(true);
 
-        ManagementCenterConfig managementCenterConfig = new ManagementCenterConfig();
-        managementCenterConfig.setUrl("http://localhost:32770/hazelcast-mancenter/").setEnabled(true);
-
-        config.setManagementCenterConfig(managementCenterConfig);
+//        ManagementCenterConfig managementCenterConfig = new ManagementCenterConfig();
+//        managementCenterConfig.setUrl("http://localhost:32770/hazelcast-mancenter/").setEnabled(true);
+//
+//        config.setManagementCenterConfig(managementCenterConfig);
 //        config.setSerializationConfig(serializationConfig);
         config.addMapConfig(mapConfig);
 
