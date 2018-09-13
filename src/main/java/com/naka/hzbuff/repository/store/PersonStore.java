@@ -27,7 +27,8 @@ public class PersonStore implements MapStore<Integer, Person>, MapLoaderLifecycl
 
     @Override
     public Person load(Integer key) {
-        return personRepository.findById(key).get();
+        Optional<Person> personSearch = personRepository.findById(key);
+        return personSearch.isPresent() ? personSearch.get() : null;
     }
 
     @Override

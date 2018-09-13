@@ -33,10 +33,12 @@ public class PersonService {
         }
         personList = personRepositoryBuffer.findAll();
         log.info("Data:" + personList.toString());
+        log.info("Data DB:" + personRepository.findAll().toString());
+        log.info("Data DB2:" + personRepository.findAllId().toString());
 
-//        log.info("Data DB:" + personRepository.findAll().toString());
-//        log.info("Data DB2:" + personRepository.findAllId());
-
+        personRepositoryBuffer.save(new Person(9, "Naka"));
+        personList = personRepositoryBuffer.findAll();
+        log.info("Data:" + personList.toString());
     }
 
 }
