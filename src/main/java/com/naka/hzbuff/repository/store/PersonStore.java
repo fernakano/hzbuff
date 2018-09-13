@@ -1,18 +1,29 @@
 package com.naka.hzbuff.repository.store;
 
+import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.MapStore;
 import com.hazelcast.spring.context.SpringAware;
 import com.naka.hzbuff.model.Person;
 import com.naka.hzbuff.repository.dao.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.hazelcast.core.MapLoaderLifecycleSupport;
 
 import java.util.*;
 
 @SpringAware
-public class PersonStore implements MapStore<Integer, Person> {
+public class PersonStore implements MapStore<Integer, Person>, MapLoaderLifecycleSupport {
 
     @Autowired
     PersonRepository personRepository;
+    
+    @Override
+    public void init(HazelcastInstance hazelcastInstance, Properties properties, String mapName) {
+        hazelcastInstance.getConfig().getManagedContext().initialize(this);
+    }
+
+    @Override
+    public void destroy() {
+    }
 
     @Override
     public Person load(Integer key) {
